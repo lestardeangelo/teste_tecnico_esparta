@@ -13,4 +13,3 @@ function solution(N, M) {
     return eaten; // retorna o número total de chocolates comidos
 }
 
-console.log(solution(10, 4)); // output: 5

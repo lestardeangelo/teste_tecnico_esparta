@@ -13,5 +13,3 @@ function solution(A) {
   
     return semPar; // retorna o valor do elemento sem par
 }
-  
-console.log(solution([9, 3, 9, 3, 9, 7, 9])); // Deve imprimir 7

@@ -1,4 +1,4 @@
-function countDistinctValues(array) {
+function solution (array) {
     const distinctValues = {}; // Cria um objeto vazio para armazenar os valores distintos
   
     // Itera sobre cada elemento do array
@@ -15,4 +15,3 @@ function countDistinctValues(array) {
     return Object.keys(distinctValues).length;
 }
 
-console.log(solution([2, 1, 1, 2, 3, 1])); // Deve retornar 3
