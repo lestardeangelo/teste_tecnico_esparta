@@ -1,6 +1,6 @@
 export interface ITasksRequest {
     status: string;
-    deadline?: string;
+    deadline: Date;
     description: string;
 }
 export interface ITasks extends ITasksRequest {
@@ -9,6 +9,6 @@ export interface ITasks extends ITasksRequest {
     updatedAt: Date;
 }
 export interface IUpdateTasks {
-    deadline?: string;
+    deadline?: Date;
     description?: string;
 }

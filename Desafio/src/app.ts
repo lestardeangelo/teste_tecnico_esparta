@@ -1,17 +1,17 @@
 import express from "express";
 import "express-async-errors";
 import handleAppErrorMiddeware from "./middlewares/handleAppError.middleware";
+import projectRoutes from "./routers/project.routes";
+import tasksRoutes from "./routers/tasks.routes";
 
 
 const app = express();
 
 app.use(express.json());
 
-//app.use("", );//
+app.use("/project", projectRoutes);
 
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
+app.use("/tasks", tasksRoutes);
 
 app.use(handleAppErrorMiddeware);
 

@@ -1,9 +1,10 @@
 import { Router } from "express";
-//import createAnswerController from "../controllers/answer/createAnswer.controller";//
+import { createTaskController } from "../controllers/tasks/createTask.controller";
+
 
 const tasksRoutes = Router();
 
-tasksRoutes.post("/:",  );
+tasksRoutes.post("/:projectId", createTaskController);
 tasksRoutes.get("/:",  );
 tasksRoutes.delete("/:", );
 tasksRoutes.patch("/:", );

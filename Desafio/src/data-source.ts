@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
 import { Project } from './entities/project.entity';
 import { Tasks } from './entities/tasks.entity';
-import { initial1678367037250 } from './migrations/1678367037250-initial';
+
 
 require('dotenv').config();
 
@@ -24,6 +24,6 @@ export const AppDataSource =
         logging: true,
         entities: process.env.NODE_ENV === "production" ? [Project, Tasks]
         : [Project, Tasks],
-        migrations: process.env.NODE_ENV === "production" ? [initial1678367037250] 
-        : [initial1678367037250],
+        migrations: process.env.NODE_ENV === "production" ? [] 
+        : [],
       });

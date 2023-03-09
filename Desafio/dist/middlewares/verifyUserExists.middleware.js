@@ -9,20 +9,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.listProjectService = void 0;
-const data_source_1 = require("../../data-source");
-const project_entity_1 = require("../../entities/project.entity");
-const AppError_1 = require("../../errors/AppError");
-const listProjectService = (id) => __awaiter(void 0, void 0, void 0, function* () {
+const data_source_1 = require("../data-source");
+const project_entity_1 = require("../entities/project.entity");
+const verifyProjectExists = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = req.params.id;
     const projectRepository = data_source_1.AppDataSource.getRepository(project_entity_1.Project);
-    const project = yield projectRepository.findOne({
-        where: {
-            id
-        },
-    });
+    const project = yield projectRepository.findOneBy({ id: id });
     if (!project) {
-        throw new AppError_1.AppError("user not found", 404);
+        return res.status(404).json({
+            message: "User not found",
+        });
     }
-    return project;
+    next();
 });
-exports.listProjectService = listProjectService;
+exports.default = verifyProjectExists;

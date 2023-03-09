@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-//import createAnswerController from "../controllers/answer/createAnswer.controller";//
+const createTask_controller_1 = require("../controllers/tasks/createTask.controller");
 const tasksRoutes = (0, express_1.Router)();
-tasksRoutes.post("/:");
+tasksRoutes.post("/:projectId", createTask_controller_1.createTaskController);
 tasksRoutes.get("/:");
 tasksRoutes.delete("/:");
 tasksRoutes.patch("/:");

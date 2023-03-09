@@ -9,7 +9,7 @@ export class Tasks {
   @Column()
   description!: string;
 
-  @Column()
+  @Column({ type: 'timestamp' })
   deadline!: Date;
 
   @Column()
