@@ -1,4 +1,4 @@
-#Estrutura de dados e SQL - Teste Técnico Esparta
+# Estrutura de dados e SQL
 Esse teste é para avaliar noções básicas de banco de dados e consultas SQL.
 
 ## Tecnologias utilizadas
@@ -20,8 +20,7 @@ Para executar as consultas SQL, é necessário ter um banco de dados com as tabe
 4. Por fim, execute o script `selects.sql` para obter as respostas dos desafios propostos.
 
 ## Autor
-<<<<<<< HEAD
+
 Este projeto foi desenvolvido por Lester De Angelo.
-=======
-Este projeto foi desenvolvido por Lester De Angelo.
->>>>>>> 4281427210f15f2223260351848f356f51eb3bac
+
+
