@@ -4,7 +4,7 @@ import { listTasksPerProjectService } from "../../services/tasks/listTaskPerProj
 
 export const listTasksPerProjectController = async (req: Request, res: Response, next: NextFunction ) =>{
   try {
-    const projectId = req.params.postId
+    const projectId = req.params.projectId
     const tasks = await listTasksPerProjectService(projectId)
 
     return res.status(200).json(instanceToPlain(tasks))
