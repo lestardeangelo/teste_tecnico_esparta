@@ -6,10 +6,13 @@ Este é o repositório do desafio proposto pela Esparta para avaliação técnic
 ## Sumário
 - [Pré-requisitos](#pré-requisitos)
 - [Instalação](#instalação)
+- [Diagrama ER](#diagrama-er)
+- [Documentação API](#documentação-api)
 - [Uso](#uso)
 - [Testes](#testes)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Autor](#autor)
+
 
 ## Pré-requisitos
 - <a name= 'Node.js' href='https://nodejs.org/en/'>Node.js</a> 14 ou superior;
