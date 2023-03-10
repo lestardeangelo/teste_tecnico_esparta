@@ -1,6 +1,6 @@
 import express from "express";
 import "express-async-errors";
-import handleAppErrorMiddeware from "./middlewares/handleAppError.middleware";
+import { handleAppErrorMiddeware } from "./middlewares/handleAppError.middleware";
 import projectRoutes from "./routers/project.routes";
 import tasksRoutes from "./routers/tasks.routes";
 

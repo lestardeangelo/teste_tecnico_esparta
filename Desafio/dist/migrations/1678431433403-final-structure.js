@@ -9,18 +9,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteTaskService = void 0;
-const data_source_1 = require("../../data-source");
-const tasks_entity_1 = require("../../entities/tasks.entity");
-const AppError_1 = require("../../errors/AppError");
-const deleteTaskService = (taskId) => __awaiter(void 0, void 0, void 0, function* () {
-    const taskRepository = data_source_1.AppDataSource.getRepository(tasks_entity_1.Tasks);
-    const task = yield taskRepository.findOne({
-        where: { id: taskId }
-    });
-    if (!task) {
-        throw new AppError_1.AppError("Task not found", 404);
+exports.finalStructure1678431433403 = void 0;
+class finalStructure1678431433403 {
+    constructor() {
+        this.name = 'finalStructure1678431433403';
     }
-    yield taskRepository.delete(task.id);
-});
-exports.deleteTaskService = deleteTaskService;
+    up(queryRunner) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query(`ALTER TABLE "project" DROP COLUMN "active"`);
+        });
+    }
+    down(queryRunner) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query(`ALTER TABLE "project" ADD "active" boolean NOT NULL DEFAULT true`);
+        });
+    }
+}
+exports.finalStructure1678431433403 = finalStructure1678431433403;

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { AppError } from "../errors/AppError";
 
-const handleAppErrorMiddeware = (error: Error, req: Request, res: Response, _: NextFunction) => {
+export const handleAppErrorMiddeware = (error: Error, req: Request, res: Response, _: NextFunction) => {
     if(error instanceof AppError){
         return res.status(error.statusCode).json({
             message: error.message
@@ -13,5 +13,3 @@ const handleAppErrorMiddeware = (error: Error, req: Request, res: Response, _: N
         stack: error.stack
     })
 }
-
-export default handleAppErrorMiddeware

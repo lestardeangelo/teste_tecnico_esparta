@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.handleAppErrorMiddeware = void 0;
 const AppError_1 = require("../errors/AppError");
 const handleAppErrorMiddeware = (error, req, res, _) => {
     if (error instanceof AppError_1.AppError) {
@@ -12,4 +13,4 @@ const handleAppErrorMiddeware = (error, req, res, _) => {
         stack: error.stack
     });
 };
-exports.default = handleAppErrorMiddeware;
+exports.handleAppErrorMiddeware = handleAppErrorMiddeware;

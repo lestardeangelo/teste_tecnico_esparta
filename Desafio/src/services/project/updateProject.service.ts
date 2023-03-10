@@ -8,7 +8,6 @@ export const updateProjectService = async (id: string, project: IUpdateProject) 
 
   const updatedProject = await projectRepository.findOneBy({ id });
 
-
   const newProject = await projectRepository.createQueryBuilder().update(Project).set(project).where("id = :id", { id }).execute();
 
   return { message: updatedProject };

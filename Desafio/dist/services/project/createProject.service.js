@@ -21,13 +21,9 @@ const createProjectService = ({ name, description }) => __awaiter(void 0, void 0
     if (projectAlreadyExists) {
         throw new AppError_1.AppError("Name already exists");
     }
-    if (!name || !description) {
-        throw new AppError_1.AppError("Missing field");
-    }
     const newProject = projectRepository.create({
         name,
-        description,
-        active: true
+        description
     });
     yield projectRepository.save(newProject);
     return newProject;

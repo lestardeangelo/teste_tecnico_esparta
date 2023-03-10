@@ -5,6 +5,5 @@ export declare class Project {
     description: string;
     createdAt: Date;
     updatedAt: Date;
-    active: boolean;
     tasks: Tasks[];
 }

@@ -2,9 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const createTask_controller_1 = require("../controllers/tasks/createTask.controller");
+const deleteTask_controller_1 = require("../controllers/tasks/deleteTask.controller");
+const listTaskPerProject_controller_1 = require("../controllers/tasks/listTaskPerProject.controller");
+const updateTask_controller_1 = require("../controllers/tasks/updateTask.controller");
 const tasksRoutes = (0, express_1.Router)();
 tasksRoutes.post("/:projectId", createTask_controller_1.createTaskController);
-tasksRoutes.get("/:");
-tasksRoutes.delete("/:");
-tasksRoutes.patch("/:");
+tasksRoutes.get("/:projectId", listTaskPerProject_controller_1.listTasksPerProjectController);
+tasksRoutes.delete("/:id", deleteTask_controller_1.deleteCommentController);
+tasksRoutes.patch("/:id", updateTask_controller_1.updatePostController);
 exports.default = tasksRoutes;

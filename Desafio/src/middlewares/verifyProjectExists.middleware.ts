@@ -2,7 +2,7 @@ import { AppDataSource } from "../data-source";
 import { Request, Response, NextFunction } from "express";
 import { Project } from "../entities/project.entity";
 
-const verifyProjectExists = async (
+export const verifyProjectExists = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -15,11 +15,10 @@ const verifyProjectExists = async (
 
   if (!project) {
     return res.status(404).json({
-      message: "User not found",
+      message: "Project not found.",
     });
   }
 
   next();
 };
 
-export default verifyProjectExists;

@@ -14,10 +14,11 @@ const class_transformer_1 = require("class-transformer");
 const createTask_service_1 = require("../../services/tasks/createTask.service");
 const createTaskController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const projectId = req.project;
+        const projectId = req.params.projectId;
+        ;
         const { description, deadline, status } = req.body;
-        const post = yield (0, createTask_service_1.createTaskService)({ description, deadline, status }, projectId);
-        return res.status(201).json((0, class_transformer_1.instanceToPlain)(post));
+        const task = yield (0, createTask_service_1.createTaskService)({ description, deadline, status }, projectId);
+        return res.status(201).json((0, class_transformer_1.instanceToPlain)(task));
     }
     catch (error) {
         next(error);

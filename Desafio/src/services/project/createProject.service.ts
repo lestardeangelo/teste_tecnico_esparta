@@ -15,14 +15,9 @@ export const createProjectService = async ({name,description}: IProjectRequest):
         throw new AppError("Name already exists");
     }
 
-    if (!name || !description) {
-        throw new AppError("Missing field");
-    }
-
     const newProject = projectRepository.create({
         name,
-        description,
-        active: true
+        description
     });
 
     await projectRepository.save(newProject);

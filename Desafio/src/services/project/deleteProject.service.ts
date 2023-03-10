@@ -1,18 +1,43 @@
-import { AppDataSource } from "../../data-source"
-import { Project } from "../../entities/project.entity"
-import { AppError } from "../../errors/AppError"
+import { Tasks } from "../../entities/tasks.entity";
+import { AppDataSource } from "../../data-source";
+import { Project } from "../../entities/project.entity";
+import { AppError } from "../../errors/AppError";
 
-export const deleteProjectService = async (id: string): Promise<void> =>{
-  const projectRepository = AppDataSource.getRepository(Project)
+class DeleteTasks{
 
-  const project = await projectRepository.findOne({where: {id}})
+  async execute( project: Project){
 
-  if(!project!.active){
-    throw new AppError("project already deactivated", 400)
-  }
+  const taskRepository = AppDataSource.getRepository(Tasks);
 
-  project!.active = false
+  const tasks = project.tasks.map((entity: any) => {
+    return entity
+  })
 
-  await projectRepository.update({id}, project!)
+  tasks.forEach(async (entity: { id: any; }) => {
+    await taskRepository.delete(entity.id)
+  })
+
+};
 }
 
+export const deletePostService = async (id: string) =>{
+
+  const projectRepository = AppDataSource.getRepository(Project);
+
+  const project = await projectRepository.findOne({ where: { id }, relations: ["tasks"] });
+
+  if (!project) {
+    throw new AppError("Project not found", 404);
+  }
+
+  const deleteTasks = new DeleteTasks() 
+
+  await deleteTasks.execute(project)
+
+  await projectRepository.delete(project.id)
+
+  const updatedProject = await projectRepository.findOne({ where: { id }, relations: ["tasks"] });
+
+  return updatedProject
+  
+} 

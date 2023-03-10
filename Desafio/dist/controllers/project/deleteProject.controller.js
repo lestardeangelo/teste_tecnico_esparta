@@ -13,8 +13,8 @@ exports.deleteProjectController = void 0;
 const deleteProject_service_1 = require("../../services/project/deleteProject.service");
 const deleteProjectController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const id = req.params.id;
-        yield (0, deleteProject_service_1.deleteProjectService)(id);
+        const { id } = req.params;
+        yield (0, deleteProject_service_1.deletePostService)(id);
         return res.status(200).json({ message: "Project deleted with success" });
     }
     catch (error) {
@@ -22,3 +22,4 @@ const deleteProjectController = (req, res, next) => __awaiter(void 0, void 0, vo
     }
 });
 exports.deleteProjectController = deleteProjectController;
+exports.default = exports.deleteProjectController;

@@ -1,7 +1,7 @@
 import { AppDataSource } from "../../data-source";
 import { Project } from "../../entities/project.entity";
 import { AppError } from "../../errors/AppError";
-import { IProjectRequest, IProject } from "../../interfaces/project";
+import { IProjectRequest } from "../../interfaces/project";
 
 
 export const listProjectService = async (id: string): Promise<IProjectRequest> =>{
@@ -11,10 +11,13 @@ export const listProjectService = async (id: string): Promise<IProjectRequest> =
     where:{
       id
     },
+    relations: {
+      tasks: true,
+    }
   })
 
   if(!project){
-    throw new AppError("user not found", 404)
+    throw new AppError("Project not found", 404)
   }
 
   return project

@@ -11,4 +11,5 @@ export interface ITasks extends ITasksRequest {
 export interface IUpdateTasks {
     deadline?: Date;
     description?: string;
+    status?: string;
 }

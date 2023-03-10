@@ -5,11 +5,11 @@ import { updateProjectService } from "../../services/project/updateProject.servi
 export const updateProjectController = async (req: Request, res: Response, next: NextFunction) => {
     try{
     const id = req.params.id;
-    const newUser = req.body;
+    const newProject = req.body;
 
-    const updatedUser = await updateProjectService(id, newUser);
+    const updatedProject = await updateProjectService(id, newProject);
 
-    return res.status(200).json(instanceToPlain(updatedUser));
+    return res.status(200).json(instanceToPlain(updatedProject));
     } catch(error){
         next(error)
     }

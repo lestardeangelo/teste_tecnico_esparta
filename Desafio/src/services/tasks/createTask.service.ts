@@ -18,10 +18,11 @@ export const createTaskService = async (
   })
 
   if(!project){
-    throw new AppError("project not found", 404)
+    throw new AppError("Project not found", 404)
   }
 
   const task = {
+    project,
     description,
     deadline,
     status,

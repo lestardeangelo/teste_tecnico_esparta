@@ -9,18 +9,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteTaskService = void 0;
-const data_source_1 = require("../../data-source");
-const tasks_entity_1 = require("../../entities/tasks.entity");
-const AppError_1 = require("../../errors/AppError");
-const deleteTaskService = (taskId) => __awaiter(void 0, void 0, void 0, function* () {
-    const taskRepository = data_source_1.AppDataSource.getRepository(tasks_entity_1.Tasks);
-    const task = yield taskRepository.findOne({
-        where: { id: taskId }
-    });
-    if (!task) {
-        throw new AppError_1.AppError("Task not found", 404);
+exports.listTasksPerProjectController = void 0;
+const class_transformer_1 = require("class-transformer");
+const listTaskPerProject_service_1 = require("../../services/tasks/listTaskPerProject.service");
+const listTasksPerProjectController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const projectId = req.params.postId;
+        const tasks = yield (0, listTaskPerProject_service_1.listTasksPerProjectService)(projectId);
+        return res.status(200).json((0, class_transformer_1.instanceToPlain)(tasks));
     }
-    yield taskRepository.delete(task.id);
+    catch (error) {
+        next(error);
+    }
 });
-exports.deleteTaskService = deleteTaskService;
+exports.listTasksPerProjectController = listTasksPerProjectController;

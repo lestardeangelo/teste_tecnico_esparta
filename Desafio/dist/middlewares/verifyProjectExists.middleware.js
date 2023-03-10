@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.verifyProjectExists = void 0;
 const data_source_1 = require("../data-source");
 const project_entity_1 = require("../entities/project.entity");
 const verifyProjectExists = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
@@ -17,9 +18,9 @@ const verifyProjectExists = (req, res, next) => __awaiter(void 0, void 0, void 0
     const project = yield projectRepository.findOneBy({ id: id });
     if (!project) {
         return res.status(404).json({
-            message: "User not found",
+            message: "Project not found.",
         });
     }
     next();
 });
-exports.default = verifyProjectExists;
+exports.verifyProjectExists = verifyProjectExists;

@@ -1,6 +1,8 @@
 import { DataSource } from 'typeorm';
 import { Project } from './entities/project.entity';
 import { Tasks } from './entities/tasks.entity';
+import { initial1678367037250 } from './migrations/1678367037250-initial';
+import { finalStructure1678431433403 } from './migrations/1678431433403-final-structure';
 
 
 require('dotenv').config();
@@ -24,6 +26,6 @@ export const AppDataSource =
         logging: true,
         entities: process.env.NODE_ENV === "production" ? [Project, Tasks]
         : [Project, Tasks],
-        migrations: process.env.NODE_ENV === "production" ? [] 
-        : [],
+        migrations: process.env.NODE_ENV === "production" ? [initial1678367037250, finalStructure1678431433403] 
+        : [initial1678367037250, finalStructure1678431433403],
       });

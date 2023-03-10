@@ -23,9 +23,10 @@ const createTaskService = ({ description, deadline, status }, projectId) => __aw
         }
     });
     if (!project) {
-        throw new AppError_1.AppError("project not found", 404);
+        throw new AppError_1.AppError("Project not found", 404);
     }
     const task = {
+        project,
         description,
         deadline,
         status,

@@ -19,9 +19,12 @@ const listProjectService = (id) => __awaiter(void 0, void 0, void 0, function* (
         where: {
             id
         },
+        relations: {
+            tasks: true,
+        }
     });
     if (!project) {
-        throw new AppError_1.AppError("user not found", 404);
+        throw new AppError_1.AppError("Project not found", 404);
     }
     return project;
 });

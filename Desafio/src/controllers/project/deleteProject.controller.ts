@@ -1,12 +1,15 @@
 import { NextFunction, Request, Response } from "express";
-import { deleteProjectService } from "../../services/project/deleteProject.service";
+import { deletePostService } from "../../services/project/deleteProject.service";
 
 export const deleteProjectController = async (req: Request, res: Response,next: NextFunction) => {
-  try{
-    const id = req.params.id
-    await deleteProjectService(id)
+  try {
+    const { id } = req.params;
+    await deletePostService(id);
     return res.status(200).json({message: "Project deleted with success"})
-  }catch(error){
+
+  } catch (error) {
     next(error)
   }
 }
+
+export default deleteProjectController

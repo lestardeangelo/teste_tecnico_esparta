@@ -15,9 +15,9 @@ const updateProject_service_1 = require("../../services/project/updateProject.se
 const updateProjectController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
-        const newUser = req.body;
-        const updatedUser = yield (0, updateProject_service_1.updateProjectService)(id, newUser);
-        return res.status(200).json((0, class_transformer_1.instanceToPlain)(updatedUser));
+        const newProject = req.body;
+        const updatedProject = yield (0, updateProject_service_1.updateProjectService)(id, newProject);
+        return res.status(200).json((0, class_transformer_1.instanceToPlain)(updatedProject));
     }
     catch (error) {
         next(error);

@@ -9,17 +9,35 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteProjectService = void 0;
+exports.deletePostService = void 0;
+const tasks_entity_1 = require("../../entities/tasks.entity");
 const data_source_1 = require("../../data-source");
 const project_entity_1 = require("../../entities/project.entity");
 const AppError_1 = require("../../errors/AppError");
-const deleteProjectService = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const projectRepository = data_source_1.AppDataSource.getRepository(project_entity_1.Project);
-    const project = yield projectRepository.findOne({ where: { id } });
-    if (!project.active) {
-        throw new AppError_1.AppError("project already deactivated", 400);
+class DeleteTasks {
+    execute(project) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const taskRepository = data_source_1.AppDataSource.getRepository(tasks_entity_1.Tasks);
+            const tasks = project.tasks.map((entity) => {
+                return entity;
+            });
+            tasks.forEach((entity) => __awaiter(this, void 0, void 0, function* () {
+                yield taskRepository.delete(entity.id);
+            }));
+        });
     }
-    project.active = false;
-    yield projectRepository.update({ id }, project);
+    ;
+}
+const deletePostService = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const projectRepository = data_source_1.AppDataSource.getRepository(project_entity_1.Project);
+    const project = yield projectRepository.findOne({ where: { id }, relations: ["tasks"] });
+    if (!project) {
+        throw new AppError_1.AppError("Project not found", 404);
+    }
+    const deleteTasks = new DeleteTasks();
+    yield deleteTasks.execute(project);
+    yield projectRepository.delete(project.id);
+    const updatedProject = yield projectRepository.findOne({ where: { id }, relations: ["tasks"] });
+    return updatedProject;
 });
-exports.deleteProjectService = deleteProjectService;
+exports.deletePostService = deletePostService;

@@ -6,11 +6,10 @@ export interface IProjectRequest {
     id: string;
     createdAt: Date;
     updatedAt: Date;
-    active: boolean;
   }
   
   export interface IUpdateProject {
-      name?: string
-      description?: string
+    name?: string;
+    description?: string;
   }
   

@@ -35,10 +35,6 @@ __decorate([
     __metadata("design:type", Date)
 ], Project.prototype, "updatedAt", void 0);
 __decorate([
-    (0, typeorm_1.Column)("boolean", { default: true }),
-    __metadata("design:type", Boolean)
-], Project.prototype, "active", void 0);
-__decorate([
     (0, typeorm_1.OneToMany)((type) => tasks_entity_1.Tasks, (tasks) => tasks.project),
     __metadata("design:type", Array)
 ], Project.prototype, "tasks", void 0);
