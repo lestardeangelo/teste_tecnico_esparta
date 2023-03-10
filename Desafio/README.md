@@ -36,6 +36,12 @@ yarn install
 ```bash
 yarn typeorm migration:run
 ```
+## Diagrama ER
+
+Diagrama ER da API definindo as relações entre as tabelas do banco de dados.
+
+![DER](Diagrama_api_esparta.drawio.png)
+
 ## Documentação API
 <a name= 'Documentação API desafio esparta' href='https://nodejs.org/en/'>Clique aqui para acessar a doc da API DevTech</a>
 
