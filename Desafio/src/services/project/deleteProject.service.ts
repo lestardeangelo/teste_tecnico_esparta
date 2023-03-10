@@ -3,7 +3,7 @@ import { AppDataSource } from "../../data-source";
 import { Project } from "../../entities/project.entity";
 import { AppError } from "../../errors/AppError";
 
-class DeleteTasks{
+export class DeleteTasks{
 
   async execute( project: Project){
 
@@ -20,7 +20,7 @@ class DeleteTasks{
 };
 }
 
-export const deletePostService = async (id: string) =>{
+export const deleteProjectService = async (id: string) =>{
 
   const projectRepository = AppDataSource.getRepository(Project);
 
