@@ -15,4 +15,4 @@ test_euclidean.js: arquivo contendo a solução para o desafio 3.
 Para executar os scripts em JavaScript, basta ter o Node.js instalado na sua máquina e executar cada um dos scripts individualmente utilizando o comando node nome_do_arquivo.js.
 
 ## Autores
-Nome do autor
+Este projeto foi desenvolvido por Lester De Angelo.
