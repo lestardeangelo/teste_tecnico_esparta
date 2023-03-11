@@ -48,7 +48,7 @@ Diagrama ER da API definindo as relações entre as tabelas do banco de dados.
 
 2. Execute as migrations do banco de dados:
 ```bash
-yarn typeorm migration:run
+yarn typeorm migration:run -d src/data-source.ts
 ```
 3. Para iniciar o servidor, execute o comando:
 ```bash
