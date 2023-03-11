@@ -1,4 +1,4 @@
-# teste_tecnico_esparta# Teste de Lógica
+# Teste de Lógica
 Este repositório contém a solução para o teste técnico da Esparta sobre lógica de programação.
 
 ## Tecnologias utilizadas
