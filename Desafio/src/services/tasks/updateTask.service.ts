@@ -17,9 +17,9 @@ export const updateTaskService = async ( id: string, description?: string, deadl
   }
 
   // lança um erro se a tarefa estiver com status 'finalizado'
-  if (task.status === "finalizado") {
-    throw new AppError("this task is already finished", 400);
-    }
+  if (task.status.toLowerCase() === "finalizado") {
+    throw new AppError("this task is already finished.", 400);
+  }
   
   // atualiza as informações da tarefa se estiverem presentes nos parâmetros da função
   if(description) task.description = description;
