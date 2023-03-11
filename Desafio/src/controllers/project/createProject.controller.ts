@@ -6,6 +6,7 @@ import { instanceToPlain } from "class-transformer"
 export const createProjectController = async (req: Request, res: Response, next: NextFunction) => {
     try{
         const { name, description } = req.body;
+        console.log(name, description)
   
         const newProject = await createProjectService({name, description});
   

@@ -17,6 +17,10 @@ export const createProjectService = async ({name,description}: IProjectRequest):
     if (projectAlreadyExists) {
         throw new AppError("Name already exists");
     }
+    //verifica se as variáveis "name" e "description" têm um valor definido.   
+    if (!name || !description) {
+        throw new AppError("Missing field");
+    }
 
     // Cria uma nova instância de projeto com as propriedades name e description passadas como parâmetro
     const newProject = projectRepository.create({

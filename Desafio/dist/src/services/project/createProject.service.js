@@ -24,6 +24,10 @@ const createProjectService = ({ name, description }) => __awaiter(void 0, void 0
     if (projectAlreadyExists) {
         throw new AppError_1.AppError("Name already exists");
     }
+    //verifica se as variáveis "name" e "description" têm um valor definido.   
+    if (!name || !description) {
+        throw new AppError_1.AppError("Missing field");
+    }
     // Cria uma nova instância de projeto com as propriedades name e description passadas como parâmetro
     const newProject = projectRepository.create({
         name,
