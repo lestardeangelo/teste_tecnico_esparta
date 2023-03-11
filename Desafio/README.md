@@ -8,7 +8,8 @@ Este é o repositório do desafio proposto pela Esparta para avaliação técnic
 - [Instalação](#instalação)
 - [Diagrama ER](#diagrama-er)
 - [Documentação API](#documentação-api)
-- [Uso](#uso)
+- [Uso Local](#uso-local)
+- [Uso Docker](#uso-docker)
 - [Testes](#testes)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Autor](#autor)
@@ -33,12 +34,6 @@ cd teste_tecnico_esparta
 ```bash
 yarn install
 ```
-4. Configure o banco de dados PostgreSQL, adicionando as informações de acesso no arquivo .env seguindo o modelo do arquivo .env.example.
-
-5. Execute as migrations do banco de dados:
-```bash
-yarn typeorm migration:run
-```
 ## Diagrama ER
 
 Diagrama ER da API definindo as relações entre as tabelas do banco de dados.
@@ -48,16 +43,36 @@ Diagrama ER da API definindo as relações entre as tabelas do banco de dados.
 ## Documentação API
 <a name= 'Documentação API desafio esparta' href='https://lestardeangelo.github.io/Doc/'>Clique aqui para acessar a doc da API</a>
 
-## Uso
-1. Para iniciar o servidor, execute o comando:
+## Uso Local
+
+1. Configure o banco de dados PostgreSQL, adicionando as informações de acesso no arquivo .env seguindo o modelo do arquivo .env.example.
+
+2. Execute as migrations do banco de dados:
+```bash
+yarn typeorm migration:run
+```
+3. Para iniciar o servidor, execute o comando:
 ```bash
 yarn dev
 ```
-2. As rotas podem ser acessadas através do endereço:
+4. As rotas podem ser acessadas através do endereço:
 ```bash
 http://localhost:3333
 ```
-3. Para testar as rotas, utilize o software Insomnia ou Postman.
+5. Para testar as rotas, utilize o software Insomnia ou Postman.
+
+## Uso Docker
+
+1. Execute o comando para construir as imagens e iniciar os containers
+
+```bash
+docker-compose up --build
+```
+2. Acesse o navegador e digite a seguinte URL
+
+```bash
+http://localhost:3000/
+```
 
 ## Testes
 Para executar os testes, execute o comando:
@@ -73,6 +88,7 @@ Node.js
 - TypeORM
 - PostgreSQL
 - Jest
+- Docker
 
 ## Autor
 Este projeto foi desenvolvido por Lester De Angelo.
