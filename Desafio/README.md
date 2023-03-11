@@ -56,7 +56,7 @@ yarn dev
 ```
 4. As rotas podem ser acessadas através do endereço:
 ```bash
-http://localhost:3333
+http://localhost:3000
 ```
 5. Para testar as rotas, utilize o software Insomnia ou Postman.
 
