@@ -1,0 +1,28 @@
+version: '3.3'
+
+services:
+  api_desafio_esparta:
+    container_name: api_desafio_esparta
+    image: api_desafio
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - DB_USER=lestarangelo
+      - DB_HOST=db
+      - DB=api_desafio_esparta
+      - DB_PASSWORD=241198
+      - DB_PORT=5432
+    depends_on:
+      - db
+  db:
+    container_name: db
+    image: postgres:12
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=lestarangelo
+      - POSTGRES_PASSWORD=241198
+      - POSTGRES_DB=api_teste
+    volumes:
+      - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
