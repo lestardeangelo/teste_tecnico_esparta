@@ -8,4 +8,4 @@ Cada pasta contem os respectivos <a name= 'link' href='https://espartadesign.not
 3. [Testes de Criação de API](https://github.com/lestardeangelo/teste_tecnico_esparta/tree/main/Desafio)
 
 ## Autor
-Este projeto foi desenvolvido por Lester De Angelo.
+Este projeto foi desenvolvido por Lestar De Angelo.
