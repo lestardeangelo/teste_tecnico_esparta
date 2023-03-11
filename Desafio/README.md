@@ -1,4 +1,3 @@
-Lestar Herminio
 # Desafio - Teste Técnico Esparta
 
 Este é o repositório do desafio proposto pela Esparta para avaliação técnica.
