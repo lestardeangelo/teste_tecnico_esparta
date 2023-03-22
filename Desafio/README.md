@@ -40,7 +40,7 @@ Diagrama ER da API definindo as relações entre as tabelas do banco de dados.
 ![DER](Diagrama_api_esparta.drawio.png)
 
 ## Documentação API
-<a name= 'Documentação API desafio esparta' href='https://lestardeangelo.github.io/Doc/'>Clique aqui para acessar a doc da API</a>
+<a name= 'Documentação API desafio esparta' href='lestardeangelo.github.io/Doc/'>Clique aqui para acessar a doc da API</a>
 
 ## Uso Local
 
